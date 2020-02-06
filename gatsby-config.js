@@ -1,33 +1,33 @@
 module.exports = {
   siteMetadata: {
-    title: `Novela by Narative`,
-    name: `Narative`,
-    siteUrl: `https://novela.narative.co`,
-    description: `This is my description that will be used in the meta tags and important for search results`,
+    title: `StoicallyTyped`,
+    name: `StoicallyTyped`,
+    siteUrl: `https://stoicallytyped.com`,
+    description: `Matt McKenna's writings on Android, Kotlin along with other tech and life topics.`,
     hero: {
-      heading: `Welcome to Novela, the simplest way to start publishing with Gatsby.`,
+      heading: `Musings on Android, Kotlin, Privacy and life.`,
       maxWidth: 652,
     },
     social: [
       {
         name: `twitter`,
-        url: `https://twitter.com/narative`,
+        url: `https://twitter.com/matthewcmckenna`,
       },
       {
         name: `github`,
-        url: `https://github.com/narative`,
+        url: `https://github.com/matthewcmckenna`,
       },
       {
         name: `instagram`,
-        url: `https://instagram.com/narative.co`,
+        url: `https://instagram.com/stoicallytyped`,
       },
       {
-        name: `linkedin`,
-        url: `https://www.linkedin.com/company/narative/`,
+        name: `unsplash`,
+        url: `https://unsplash.com/@mmckenna`,
       },
       {
-        name: `dribbble`,
-        url: `https://dribbble.com/narativestudio`,
+        name: `medium`,
+        url: `https://medium.com/@mattmck`,
       },
     ],
   },
