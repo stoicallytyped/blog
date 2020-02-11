@@ -3,9 +3,9 @@ module.exports = {
     title: `StoicallyTyped`,
     name: `StoicallyTyped`,
     siteUrl: `https://stoicallytyped.com`,
-    description: `Matt McKenna's writings on Android, Kotlin along with other tech and life topics.`,
+    description: `Posts on Android, Kotlin along with other tech and life topics.`,
     hero: {
-      heading: `Musings on Android, Kotlin, Privacy and life.`,
+      heading: `Musings on Android, Kotlin, internet privacy and life.`,
       maxWidth: 652,
     },
     social: [
