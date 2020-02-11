@@ -3,21 +3,14 @@
     Hi, I'm Matt McKenna. I've been working on Android for a while now.
   avatar: ./avatars/matt-mckenna-2019.jpg
   social:
-    - url: https://twitter.com/matthewcmckenna
-    - url: https://github.com/matthewcmckenna
-    - url: https://instagram.com/stoicallytyped
-    - url: https://unsplash.com/@mmckenna
-    - url: https://medium.com/@mattmck
+    - name: twitter
+      url: https://twitter.com/matthewcmckenna
+    - name: github
+      url: https://github.com/matthewcmckenna
+    - name: instagram
+      url: https://instagram.com/stoicallytyped
+    - name: unsplash
+      url: https://unsplash.com/@mmckenna
+    - name: medium
+      url: https://medium.com/@mattmck
   featured: true
-
-# - name: Thiago Costa
-#   bio: |
-#     Written by You. This is where your author bio lives. Share your work, your
-#     joys and of course, your Twitter handle.
-#   avatar: ./avatars/thiago-costa.png
-#   social:
-#     - url: https://unsplash.com
-#     - url: https://stackoverflow.com
-#     - url: https://github.com
-#     - url: https://github.com
-#     - url: https://github.com
