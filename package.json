@@ -9,10 +9,15 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
-    "@narative/gatsby-theme-novela": "^0.*",
+    "@narative/gatsby-theme-novela": "^0.13.3",
     "gatsby": "^2.13.41",
+    "gatsby-cli": "^2.8.29",
     "gatsby-plugin-manifest": "^2.2.4",
+    "marked": "^0.8.0",
+    "mem": "^6.0.1",
+    "prismjs": "^1.19.0",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "typescript": "^3.7.5"
   }
 }
