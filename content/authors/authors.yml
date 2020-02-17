@@ -1,6 +1,8 @@
 - name: Matt McKenna
   bio: |
-    Hi, I'm Matt McKenna. I've been working on Android for a while now.
+    Hi I'm Matt! I spend my days typing on a keyboard creating things for our favorite 
+    green robot and battling build time boredom.
+
   avatar: ./avatars/matt-mckenna-2019.jpg
   social:
     - name: twitter
