@@ -1,23 +1,21 @@
-name: Gatsby Deploy
+name: Gatsby Build and Deploy to GitHub Pages on Push
 
-on: [push]
+on:
+push:
+  branches:
+    - master
 
 jobs:
-  build:
+build-and-deploy:
+  runs-on: ubuntu-latest
+  steps:
+    - name: Checkout
+      uses: actions/checkout@master
 
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [8.x, 10.x, 12.x]
-
-    steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm install
-    - run: npm run deploy
+    - name: Build and Deploy
+      uses: JamesIves/github-pages-deploy-action@master
       env:
-        CI: true
+        ACCESS_TOKEN: ${{ secrets.GATSBY_ACCESS_TOKEN }}
+        BRANCH: gh-pages
+        FOLDER: public
+        BUILD_SCRIPT: yarn && yarn run build
