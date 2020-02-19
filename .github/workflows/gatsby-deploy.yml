@@ -1,6 +1,6 @@
 name: Gatsby Build and Deploy to GitHub Pages on Push
 
-on:
+on: [push]
 push:
   branches:
     - master
