@@ -1,0 +1,27 @@
+- profile:
+  initials: Hey!
+  name: Matt McKenna
+  email: mmckenna@pm.me
+  profession: Android Developer
+  image: images/profile.jpg
+  location: Philadelphia, PA
+  relocation: true
+  company: Comcast | Xfinity Stream
+  for_hire: false
+  focus: Learning how to write better, technically
+  focus_url: https://stoicallytyped.com
+  about: |
+    I am passionate about creating premium user experiences within the mobile app ecosystem.
+  skills:
+    - Android
+    - Kotlin
+    - Architecture
+  tools:
+    - Git
+    - RxJava
+    - Android Studio
+  budget:
+    currency: $
+    min: 5
+    max: 400
+    default: 20

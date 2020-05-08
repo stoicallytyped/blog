@@ -1,0 +1,60 @@
+- name: StoicallyTyped Blog
+  url: https://StoicallyTyped.com
+  description: |
+    My blog to write about Android, Kotlin, and internet privacy along with other tech and life topics.
+  status: in progress
+  tags:
+    - Android
+    - Kotlin
+    - RxJava
+    - Gatsby
+    - JAM stack
+  icon: website
+  image: images/websites/stoicallytyped.png
+
+- name: Xfinity Stream
+  url: https://xfinity.com/stream
+  description: |
+    Mobile streaming platform for Comcast content including live TV, downloads, recordings, etc
+  status: in progress
+  tags:
+    - Android
+    - Kotlin
+    - Java
+    - RxJava
+  icon: website
+  image: images/app_icons/xfinity_stream.png
+
+- name: NBA
+  url: https://play.google.com/store/apps/details?id=com.nbadigital.gametimelite&hl=en_US
+  description: NBA Sports application serving millions of users all thei basket ball content
+  # status: live
+  tags:
+    - Android
+    - Kotlin
+    - Java
+    - RxJava
+  icon: website
+  image: images/app_icons/nba.png
+
+- name: Derema Help
+  url: https://www.deremahelp.com
+  description: |
+    - Responsible for developing Android and iOS apps natively from scratch
+    - Developed solutions for downloading and storing files offline with the ability to remotely update these documents
+    - Maintained all apsects of Google Play / App Store listings
+    - Integrated mobile analytics to track usage to better understand customer needs
+    - Designed the UI/UX following platform guidelines while meeting business requirements
+    - Utilized version control with Git and bitbucket.org
+    - Responsible for the inception and implementation of new features
+    - Developed a slot machine game to use as a rewards system while in the showroom
+  # status: live
+  tags:
+    - Android
+    - iOS
+    - Java
+    - Objective C
+    - Git
+    - Google Analytics
+  icon: website
+  image: images/app_icons/derema_help.png

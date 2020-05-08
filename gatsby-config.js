@@ -3,9 +3,9 @@ module.exports = {
     title: `StoicallyTyped`,
     name: `StoicallyTyped`,
     siteUrl: `https://stoicallytyped.com`,
-    description: `Posts on Android, Kotlin, and internet privacy along with other tech and life topics.`,
+    description: `Matt McKenna - Posts on Android, Kotlin, and internet privacy along with other tech and life topics.`,
     hero: {
-      heading: `Posts on Android, Kotlin, internet privacy and life.`,
+      heading: `Matt McKenna - Posts on Android, Kotlin, internet privacy and life.`,
       maxWidth: 652,
     },
     social: [
@@ -30,8 +30,19 @@ module.exports = {
         url: `https://medium.com/@mattmck`,
       },
     ],
+    locale: "en",
   },
   plugins: [
+    // -- THEMES --
+    {
+      resolve: "@wkocjan/gatsby-theme-intro",
+      options: {
+        basePath: "/resume",
+        contentPath: "resume/",
+        showThemeLogo: false,
+        theme: "bright-green",
+      },
+    },
     {
       resolve: "@narative/gatsby-theme-novela",
       options: {
