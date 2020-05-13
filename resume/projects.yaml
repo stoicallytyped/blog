@@ -1,7 +1,7 @@
 - name: StoicallyTyped Blog
-  url: https://StoicallyTyped.com
+  url: https://stoicallytyped.com
   description: |
-    My blog to write about Android, Kotlin, and internet privacy along with other tech and life topics.
+    My blog to write about Android, Kotlin, and internet privacy along with other tech and life topics. I find great value in reading blog posts from others and hope to help share some of the knowledge, tips, and tricks I have and will learn.
   status: in progress
   tags:
     - Android
@@ -15,27 +15,63 @@
 - name: Xfinity Stream
   url: https://xfinity.com/stream
   description: |
-    Mobile streaming platform for Comcast content including live TV, downloads, recordings, etc
+    - Spearheaded implementation of MVI architecture utilizing RxJava
+    - Helped design a composable, reactive view architecture to take advantage of MVI in our new features
+    - Took lead of [redacted major feature] including development, corespondance with other teams, and assigning tasks
+    - Focused on quality by triaging and reducing overall ANRs
+    - Created feature proposals that helped bring product teams on board to develop and ship
+    - Utilized lab weeks to implement premium platform features
+    - Rewrote our test suite to be more modern to help encourage writing more tests
+    - Mentored junior members of the team on various occasions
   status: in progress
   tags:
     - Android
     - Kotlin
     - Java
     - RxJava
+    - Splunk
+    - JIRA
+    - Git
+    - Gerrit
+    - Github
+    - Gradle
+    - Firebase
   icon: website
   image: images/app_icons/xfinity_stream.png
 
-- name: NBA
+- name: Official NBA App
   url: https://play.google.com/store/apps/details?id=com.nbadigital.gametimelite&hl=en_US
-  description: NBA Sports application serving millions of users all thei basket ball content
+  description: |
+    - Developed components reaching over 10 million users
+    - Utilized Databinding, MVP, MVVM, Observers, JSON and REST APIs
+    - Integrated Chromecast for second screen playback of live and ondemand media
+    - Created views for integral parts of the apps including purchases, media playback, video playback within articles
+    - Promoted and applied new material design paradigms such as Bottom Bars and Bottom sheets
+    - Utilized version control with Git
   # status: live
   tags:
     - Android
     - Kotlin
     - Java
     - RxJava
+    - Git
+    - Github
   icon: website
   image: images/app_icons/nba.png
+
+- name: Simpatic
+  description: |
+    - Developed Android app from scratch
+    - Developed UI and UX based on mockups
+    - Utilized Smack XMPP and SpongeyCastle for encrypted message passing
+  # status: live
+  tags:
+    - Android
+    - Java
+    - Git
+    - Bitbucket
+  icon: website
+  image: images/app_icons/simpatic.png
 
 - name: Derema Help
   url: https://www.deremahelp.com
@@ -55,6 +91,7 @@
     - Java
     - Objective C
     - Git
+    - Bitbucket
     - Google Analytics
   icon: website
   image: images/app_icons/derema_help.png

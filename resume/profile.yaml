@@ -11,15 +11,16 @@
   focus: Learning how to write better, technically
   focus_url: https://stoicallytyped.com
   about: |
-    I am passionate about creating premium user experiences within the mobile app ecosystem.
+    Hi, I'm Matt! I am passionate about creating premium user experiences within the mobile app ecosystem. I have a keen eye for what gives apps that premium feeling
   skills:
     - Android
     - Kotlin
     - Architecture
   tools:
-    - Git
-    - RxJava
     - Android Studio
+    - RxJava
+    - Git
+
   budget:
     currency: $
     min: 5
