@@ -33,29 +33,6 @@ module.exports = {
     locale: "en",
   },
   plugins: [
-    // -- THEMES --
-    {
-      resolve: "@wkocjan/gatsby-theme-intro",
-      options: {
-        basePath: "/resume",
-        contentPath: "resume/",
-        showThemeLogo: false,
-        theme: "bright-green",
-      },
-    },
-    {
-      resolve: "@narative/gatsby-theme-novela",
-      options: {
-        contentPosts: "content/posts",
-        contentAuthors: "content/authors",
-        basePath: "/",
-        authorsPage: true,
-        sources: {
-          local: true,
-          // contentful: true,
-        },
-      },
-    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -95,6 +72,39 @@ module.exports = {
         sampleRate: 5,
         siteSpeedSampleRate: 10,
         // cookieDomain: "example.com",
+      },
+    },
+    `@pauliescanlon/gatsby-mdx-embed`,
+    // -- THEMES --
+    {
+      resolve: "@wkocjan/gatsby-theme-intro",
+      options: {
+        basePath: "/resume",
+        contentPath: "resume/",
+        showThemeLogo: false,
+        theme: "bright-green",
+      },
+    },
+    {
+      resolve: "@narative/gatsby-theme-novela",
+      options: {
+        contentPosts: "content/posts",
+        contentAuthors: "content/authors",
+        basePath: "/",
+        authorsPage: true,
+        sources: {
+          local: true,
+          contentful: false,
+        },
+      },
+    },
+    {
+      resolve: `@chrismwilliams/gatsby-theme-cactus`,
+      options: {
+        basePath: '/notes',
+        contentPath: 'notes/posts/',
+        assetPath: 'notes/assets/',
+        mdx: false,
       },
     },
   ],

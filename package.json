@@ -10,19 +10,25 @@
     "deploy": "gatsby build && gh-pages -d public -b master"
   },
   "dependencies": {
+    "@chrismwilliams/gatsby-theme-cactus": "^1.0.5",
+    "@mdx-js/mdx": "^1.6.4",
+    "@mdx-js/react": "^1.6.4",
     "@narative/gatsby-theme-novela": "^0.13.3",
+    "@pauliescanlon/gatsby-mdx-embed": "0.0.19",
     "@wkocjan/gatsby-theme-intro": "^1.0.5",
-    "gatsby": "^2.21.33",
-    "gatsby-cli": "^2.12.21",
-    "gatsby-plugin-google-analytics": "^2.3.1",
-    "gatsby-plugin-manifest": "^2.4.3",
+    "gatsby": "^2.22.4",
+    "gatsby-cli": "^2.12.29",
+    "gatsby-plugin-google-analytics": "^2.3.2",
+    "gatsby-plugin-manifest": "^2.4.8",
+    "gatsby-plugin-mdx": "^1.2.11",
     "gatsby-theme-neutrino": "^1.0.1",
     "marked": "^0.8.2",
     "mem": "^6.1.0",
     "prismjs": "^1.20.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "typescript": "^3.8.3"
+    "typescript": "^3.9.3",
+    "underline": "^1.0.4"
   },
   "devDependencies": {
     "gh-pages": "^2.2.0"
