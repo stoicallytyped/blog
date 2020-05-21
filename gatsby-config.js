@@ -98,14 +98,5 @@ module.exports = {
         },
       },
     },
-    {
-      resolve: `@chrismwilliams/gatsby-theme-cactus`,
-      options: {
-        basePath: '/notes',
-        contentPath: 'notes/posts/',
-        assetPath: 'notes/assets/',
-        mdx: false,
-      },
-    },
   ],
 };
