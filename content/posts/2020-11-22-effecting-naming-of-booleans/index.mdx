@@ -1,0 +1,88 @@
+---
+title: "Effective Naming of Booleans"
+slug: effective-naming-of-booleans
+author: Matt McKenna
+date: 2020-11-21
+hero: ./images/Yes!_We_Have_No_Bananas.png
+excerpt: Name your booleans in an effective way that is easy to understand and code review.
+secret: false
+draft: false
+---
+
+>"Do you have bananas?"
+
+>"Yes! We have no bananas."
+
+This is the title of [a song by Frank Silver and Irvine Cohn](https://en.wikipedia.org/wiki/Yes!_We_Have_No_Bananas) that my great grandfather used to play for me on his ukulele, but today we will be using it to better understand how to name boolean values.
+
+This line is comedic in its confusion. Upon asking a yes or no question the inquisitor is met with both in response. How are they supposed to interpret this answer? After a moment of thought it can be fairly safe to determine the shopkeeper having no bananas. That extra moment of thought leading to this conclusion is what we will be discussing. 
+
+Lets translate this question into some Kotlin code. We can turn "Yes! We have no bananas into the below boolean declaration.
+
+```java
+val hasNoBananas = true
+```
+
+and "No! We have no bananas" into the false equivalent
+
+```java
+val hasNoBananas = false
+```
+
+This code is perfectly valid and won't cause any problems in its implementation.  
+
+```java
+if (hasNoBananas) {
+  println("We have no bananas")
+} else {
+  println("We have bananas")
+}
+```
+
+Let's take a step away from the bananas for a moment and look at a more practical example. Let's consider a feature flag that will determine whether or not our users have access to a new part of our app.
+
+```java
+val isNotEnabled = true
+```
+
+This looks just like the above, but when applied to our context, it has the same effect as the reply from the shopkeeper. The 'not' in the boolean name creates a moment of mental processing needed to understand that `true` is actually the negative case and `false` is actually the positive case. Much like a double negative in grammar, the reader of this code needs to apply more thought to what will happen when presented with:
+
+```java
+setFeatureEnabled(isNotEnabled)
+```
+
+We have added a negation into the name of our boolean. We are asking the reader of our code to care about the name as well as the current value to understand what we are intending. When naming a boolean it is best to omit any modifiers to the intention of the value in the name. We wouldn't write something like:
+
+```java
+val isNotNOTEnabled = true
+```
+
+Making the changes to the above we can see how effective this is, both for the shopkeeper and our app!
+
+```java
+val hasBananas = true
+
+fun answerFruit(fruit: String, hasInventory: Boolean) {
+    if (hasInventory) {
+      println("We have $fruit")
+    } else {
+      println("We have no $fruits")
+    }
+}
+
+answerFruit("bananas", hasBananas) // We have bananas
+
+hasBananas = false
+
+answerFruit("bananas", hasBananas) // We have no bananas
+```
+
+```java
+val isEnabled = false
+setFeatureEnabled(isEnabled)
+
+isEnabled = true
+setFeatureEnabled(isEnabled)
+```
+
+By removing the negation in the name, we now understand the desired intent. Applying this practice prevents needing to make any mental jumps when working with the humble boolean. 
