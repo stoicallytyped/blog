@@ -20,13 +20,13 @@ This line is comedic in its confusion. Upon asking a yes or no question the inqu
 Lets translate this question into some Kotlin code. We can turn "Yes! We have no bananas into the below boolean declaration.
 
 ```java
-val hasNoBananas = true
+var hasNoBananas = true
 ```
 
 and "No! We have no bananas" into the false equivalent
 
 ```java
-val hasNoBananas = false
+var hasNoBananas = false
 ```
 
 This code is perfectly valid and won't cause any problems in its implementation.  
@@ -42,7 +42,7 @@ if (hasNoBananas) {
 Let's take a step away from the bananas for a moment and look at a more practical example. Let's consider a feature flag that will determine whether or not our users have access to a new part of our app.
 
 ```java
-val isNotEnabled = true
+var isNotEnabled = true
 ```
 
 This looks just like the above, but when applied to our context, it has the same effect as the reply from the shopkeeper. The 'not' in the boolean name creates a moment of mental processing needed to understand that `true` is actually the negative case and `false` is actually the positive case. Much like a double negative in grammar, the reader of this code needs to apply more thought to what will happen when presented with:
@@ -54,13 +54,13 @@ setFeatureEnabled(isNotEnabled)
 We have added a negation into the name of our boolean. We are asking the reader of our code to care about the name as well as the current value to understand what we are intending. When naming a boolean it is best to omit any modifiers to the intention of the value in the name. We wouldn't write something like:
 
 ```java
-val isNotNOTEnabled = true
+var isNotNOTEnabled = true
 ```
 
 Making the changes to the above we can see how effective this is, both for the shopkeeper and our app!
 
 ```java
-val hasBananas = true
+var hasBananas = true
 
 fun answerFruit(fruit: String, hasInventory: Boolean) {
     if (hasInventory) {
@@ -78,7 +78,7 @@ answerFruit("bananas", hasBananas) // We have no bananas
 ```
 
 ```java
-val isEnabled = false
+var isEnabled = false
 setFeatureEnabled(isEnabled)
 
 isEnabled = true
