@@ -10,20 +10,43 @@
     - Gatsby
     - JAM stack
   icon: website
-  image: images/websites/stoicallytyped.png
+  image: images/app_icons/stoicallytyped.png
+
+- name: Xfinity App - Overview & Product Purchase
+  url: https://www.xfinity.com/apps
+  description: |
+    - Took ownership of the Overview screen
+    - Mentored developers in effective Android programming practices
+    - Focused on created server driven UI components
+    - Created custom card UI's and mechanisms to update them reactively based on API responses
+    - Developed internal API's for other teams to integrate their custom cards into our server driven UI
+    - Established standards for code review with a focus on conversation and learning
+  status: in progress
+  tags:
+    - Android
+    - Kotlin
+    - Coroutines
+    - Java
+    - RxJava
+    - JIRA
+    - Git
+    - Github
+    - Gradle
+  icon: website
+  image: images/app_icons/xfinity_app_demo.jpg
 
 - name: Xfinity Stream
   url: https://xfinity.com/stream
   description: |
     - Spearheaded implementation of MVI architecture utilizing RxJava
     - Helped design a composable, reactive view architecture to take advantage of MVI in our new features
-    - Took lead of [redacted major feature] including development, corespondance with other teams, and assigning tasks
+    - Took lead of Chromecast support including development, design, corespondance with other teams, and assigning tasks
     - Focused on quality by triaging and reducing overall ANRs
     - Created feature proposals that helped bring product teams on board to develop and ship
     - Utilized lab weeks to implement premium platform features
     - Rewrote our test suite to be more modern to help encourage writing more tests
     - Mentored junior members of the team on various occasions
-  status: in progress
+  # status: in progress
   tags:
     - Android
     - Kotlin
@@ -37,7 +60,7 @@
     - Gradle
     - Firebase
   icon: website
-  image: images/app_icons/xfinity_stream.png
+  image: images/app_icons/xfinity_stream_demo.png
 
 - name: Official NBA App
   url: https://play.google.com/store/apps/details?id=com.nbadigital.gametimelite&hl=en_US

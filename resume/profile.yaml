@@ -4,20 +4,21 @@
   email: mmckenna@pm.me
   profession: Android Developer
   image: images/profile.jpg
-  location: Philadelphia, PA
+  location: Baltimore, MD
   relocation: true
-  company: Comcast | Xfinity Stream
+  company: Comcast | Xfinity App (Overview)
   for_hire: false
-  focus: Learning how to write better, technically
+  focus: Learning how to write better technical articles and documents 
   focus_url: https://stoicallytyped.com
   about: |
-    Hi, I'm Matt! I am passionate about creating premium user experiences within the mobile app ecosystem. I have a keen eye for what gives apps that premium feeling
+    Hi, I'm Matt! I am passionate about creating premium user experiences within the mobile app ecosystem. I have a keen eye for what gives apps that premium feeling. I also love talking code and digging into problems and concepts! Reach out on Twitter/Email!
   skills:
     - Android
     - Kotlin
     - Architecture
   tools:
     - Android Studio
+    - Kotlin/Coroutines
     - RxJava
     - Git
 
