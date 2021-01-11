@@ -13,7 +13,6 @@
     "@mdx-js/mdx": "^1.6.21",
     "@mdx-js/react": "^1.6.21",
     "@narative/gatsby-theme-novela": "^0.18.4",
-    "@pauliescanlon/gatsby-mdx-embed": "0.0.29",
     "@types/react": "^17.0.0",
     "@wkocjan/gatsby-theme-intro": "^1.0.14",
     "acorn": "^8.0.4",

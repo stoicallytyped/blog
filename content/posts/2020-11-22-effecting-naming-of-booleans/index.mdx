@@ -39,23 +39,58 @@ if (hasNoBananas) {
 }
 ```
 
-Let's take a step away from the bananas for a moment and look at a more practical example. Let's consider a feature flag that will determine whether or not our users have access to a new part of our app.
+Let's take a step away from the bananas for a moment and look at a more practical example. Let's consider a feature flag that will determine whether or not our users have access to a new part of our app and name it with the same intention we have been looking at. We can do this in two ways depending on the words we are using. With the inclusion of 'not' or using a negated version of the word itself.
+
+```java
+var isNotEnabled = true
+var isDisabled = true
+```
+
+This looks just like the example with the bananas, but when applied to our context, it has the same effect as the reply from the shopkeeper. The 'not' in the boolean name creates a moment of mental processing needed to understand that `true` is actually the negative case and `false` is actually the positive case. Much like a double negative in grammar, the reader of this code needs to apply more thought to what will happen when presented with:
+
+```java
+fun setFeatureEnabled(isEnabled: Boolean) {
+  if (isEnabled) {
+    // Enable Feature
+  } else {
+    // Disable Feature
+  }
+}
+
+
+setFeatureEnabled(isNotEnabled) // setFeatureEnabled(true)
+// or
+setFeatureEnabled(isDisabled) // setFeatureEnabled(true)
+```
+
+We have added a negation into the name of our boolean. We are asking the reader of our code to care about the name as well as the current value to understand what we are intending. In the above example we are passing `true` to our function with the names `isNotEnabled` and `isDisabled`. This will lead to confusion as the function is expecting `true` to be the enabled case, but reading this code it looks like we want to disable our feature.
+
+When naming a boolean it is best to omit any modifiers to the intention of the value in the name. We wouldn't write something like:
+
+```java
+var isNotNOTEnabled = true
+```
+so we should also not write something like:
 
 ```java
 var isNotEnabled = true
 ```
 
-This looks just like the above, but when applied to our context, it has the same effect as the reply from the shopkeeper. The 'not' in the boolean name creates a moment of mental processing needed to understand that `true` is actually the negative case and `false` is actually the positive case. Much like a double negative in grammar, the reader of this code needs to apply more thought to what will happen when presented with:
+This also applies to words that can have negated meaning as we could easily name a boolean like:
 
 ```java
-setFeatureEnabled(isNotEnabled)
+var isDisabled = true
 ```
 
-We have added a negation into the name of our boolean. We are asking the reader of our code to care about the name as well as the current value to understand what we are intending. When naming a boolean it is best to omit any modifiers to the intention of the value in the name. We wouldn't write something like:
+But this has the same problem of needing to align the positive `true` with the negated naming and vice-versa. And just like above we wouldn't write:
 
 ```java
-var isNotNOTEnabled = true
+var isNotDisabled = true
 ```
+
+This would be clearer and logically equivalent if it was named `isEnabled`. Therefore, we should rely on the positive naming scheme to keep the `true` / `false` values aligned with the boolean that they represent.
+
+# Applying this understanding to our case
 
 Making the changes to the above we can see how effective this is, both for the shopkeeper and our app!
 
@@ -79,10 +114,14 @@ answerFruit("bananas", hasBananas) // We have no bananas
 
 ```java
 var isEnabled = false
-setFeatureEnabled(isEnabled)
+setFeatureEnabled(isEnabled) // setFeatureEnabled(false)
 
 isEnabled = true
-setFeatureEnabled(isEnabled)
+setFeatureEnabled(isEnabled) // setFeatureEnabled(true)
 ```
 
-By removing the negation in the name, we now understand the desired intent. Applying this practice prevents needing to make any mental jumps when working with the humble boolean. 
+By removing the negation in the name, we now understand and define the desired intent. Applying this practice prevents needing to make any mental jumps when working with the humble boolean.
+
+---
+
+[<u>Leave a comment on Twitter with your thoughts!</u>](https://twitter.com/intent/tweet?in_reply_to=1330688412899270656)

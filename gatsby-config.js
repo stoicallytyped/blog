@@ -45,7 +45,6 @@ module.exports = {
         icon: `src/assets/favicon.png`,
       },
     },
-    `@pauliescanlon/gatsby-mdx-embed`,
     // -- THEMES --
     {
       resolve: "@wkocjan/gatsby-theme-intro",
@@ -83,3 +82,6 @@ module.exports = {
     },
   ],
 };
+
+// GATSBY_EXPERIMENTAL_LAZY_DEVJS=true gatsby develop
+// Please do let us know how it goes (good, bad, or otherwise) at https://gatsby.dev/lazy-devjs-umbrella
