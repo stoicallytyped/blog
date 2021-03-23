@@ -69,17 +69,6 @@ module.exports = {
         },
       },
     },
-    {
-      resolve: `gatsby-plugin-indieweb`,
-      options: {
-        auth: {
-          twitter: `matthewcmckenna`,
-          github: `matthewcmckenna`,
-          email: `mmckenna@pm.me`,
-        },
-        webmention: `stoicallytyped.com`,
-      },
-    },
   ],
 };
 
