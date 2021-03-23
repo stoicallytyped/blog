@@ -4,7 +4,7 @@ export function onRenderBody({ setPostBodyComponents }) {
     <script
       src="https://utteranc.es/client.js"
       repo="stoicallytyped/blog"
-      issue-term="pathname"
+      issue-term="url"
       label="💬 comments"
       theme="preferred-color-scheme"
       crossorigin="anonymous"

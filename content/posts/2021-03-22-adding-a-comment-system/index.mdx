@@ -5,6 +5,7 @@ author: Matt McKenna
 date: 2021-03-22
 hero: ./images/adam-jang-8pOTAtyd_Mc-unsplash.jpg
 excerpt: GitHub Issue powered comments are now available on all posts!
+subscription: true
 secret: false
 draft: false
 ---
@@ -12,18 +13,18 @@ draft: false
 # A thought on comments
 
 I've been looking for a commenting system similar to [Utteranc.es](https://utteranc.es) for a long time. 
-A tool that would allow for the addition of a commetn system that is somewhat managed by another service so that 
+A tool that would allow for the addition of a comment system that is somewhat managed by another service so that 
 readers could respond and leave feedback or thoughts as they read.
 
 Other blogging platforms have commenting systems included and they are a huge selling point. Utterances is almost my 
 ideal system. The main drawback being that it requires a user to log in and authorize it to post for them. There is a 
 way to circumvent this by going into the issue on GitHub itself which might not be the biggest inconvenience.
 
-Lastly, I need to learn more Gatsby to get the comments above the main footer. If you have any thoughts on the best way to do that 
-please leave a comment! 
-
 Currently I've created a `gatsby-ssr.js` file to add the Utterances script at the end of each page by calling `setPostBodyComponents`. 
 I'm sure there is a nifty way to do this with components and templates, but this is working for now.
+
+I originally had the `issue-term=pathname` but this didn't perform as I expected. Utterances treated every page as the index 
+and therefore only had one issue for the entire site. It looks like chaning this to use the `url` is working as intended.
 
 ```javascript
 import React from "react";
@@ -32,7 +33,7 @@ export function onRenderBody({ setPostBodyComponents }) {
     <script
       src="https://utteranc.es/client.js"
       repo="stoicallytyped/blog"
-      issue-term="pathname"
+      issue-term="url"
       label="💬 comments"
       theme="preferred-color-scheme"
       crossOrigin="anonymous"
@@ -42,5 +43,7 @@ export function onRenderBody({ setPostBodyComponents }) {
 }
 ```
 
+Lastly, I need to learn more Gatsby to get the comments above the main footer. If you have any thoughts on the best way to do that 
+please leave a comment! 
 
 ###### *Header photo by <a href="https://unsplash.com/@adamjang?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Adam Jang</a> on <a href="/s/photos/feedback?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>*
