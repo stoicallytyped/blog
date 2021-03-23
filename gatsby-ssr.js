@@ -7,7 +7,7 @@ export function onRenderBody({ setPostBodyComponents }) {
       issue-term="pathname"
       label="💬 comments"
       theme="preferred-color-scheme"
-      crossOrigin="anonymous"
+      crossorigin="anonymous"
       async
     />,
   ]);

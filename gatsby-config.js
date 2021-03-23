@@ -60,6 +60,7 @@ module.exports = {
       options: {
         rootPath: "/",
         basePath: "/",
+        mailchimp: true,
         contentPosts: "content/posts",
         contentAuthors: "content/authors",
         authorsPage: true,
@@ -67,6 +68,12 @@ module.exports = {
           local: true,
           contentful: false,
         },
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-mailchimp',
+      options: {
+        endpoint: 'https://stoicallytyped.us1.list-manage.com/subscribe/post?u=e7e52d00bc4c01c597e9630b5&amp;id=cad6b37331', // add your MC list endpoint here; see plugin repo for instructions
       },
     },
   ],
