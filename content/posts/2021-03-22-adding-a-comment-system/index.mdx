@@ -24,7 +24,7 @@ Currently I've created a `gatsby-ssr.js` file to add the Utterances script at th
 I'm sure there is a nifty way to do this with components and templates, but this is working for now.
 
 I originally had the `issue-term="pathname"` but this didn't perform as I expected. Utterances treated every page as the index 
-and therefore only had one issue for the entire site. It looks like chaning this to use the `url` is working as intended.
+and therefore only had one issue for the entire site. It looks like changing this to use the `issue-term="url"` is working as intended.
 
 ```javascript
 import React from "react";
