@@ -76,6 +76,12 @@ module.exports = {
         endpoint: 'https://stoicallytyped.us1.list-manage.com/subscribe/post?u=e7e52d00bc4c01c597e9630b5&amp;id=cad6b37331', // add your MC list endpoint here; see plugin repo for instructions
       },
     },
+    {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: `https://stoicallytyped.com/`,
+      },
+    },
   ],
 };
 
