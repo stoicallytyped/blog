@@ -1,93 +1,296 @@
 ---
-title: "Unlocking the power of Live Templates in Android Studio"
+title: "Understanding Android Studio Live Templates for Jetpack Compose"
 slug: unlocking-the-power-of-live-templates-in-android-studio
 author: Matt McKenna
-date: 2021-03-30
-hero: ./images/discovering-live-templates.png
-excerpt: What are Live Templates? How can they speed up your development? And how to create your own!
+date: 2021-04-20
+hero: ./images/understanding-live-templates.png
+excerpt: What are Live Templates? How can they speed up your development? And how to create your own for Jetpack Compose!
 subscription: true
 secret: true
 draft: true
 ---
 
-# What are Live Templates
+# Intro to Live Templates
 
-How many times a week do you strike the same keys 
+If you are like me you like to optimize some of the most common situations in your day to day tasks. Finding little ways to make your machine work more for you is satisfying and when it all adds up can lead to some serious time saved! 
 
-## What are they?
-## Predifined Live Templates
-## How to use a Live Template
+Android Studio's live templates are a great and fun way to increase your productivity.
 
-# How to Create Custom Live Templates
-
-## How Variables Work
-
-### $END$
-
-### $SELECTION$
-
-### Automatically Resolving Imports
-What is FQ?
-
-# When Live Templates are not a Good Choice
-1. why a code construct can be more beneficial (easy sharing)
-2. Use for repeatable tasks that can't be made into a code construct
-	1. making a composable
-	2. logging something
-	3. testing structure
-
-# Live Templates to Take With You
-1. Misc
-	1. log method name
-	2. backing fields
-  3. 
-2. Compose
-	1. private composable
-	2. preview composable
-	3. composable with modifier param
-	4. surrounds
-		1. Box
-	5. 
-3. Testing
-	1. gwt
-  2. mocking with mockito (`when`($CALL$).return($VALUE$))
-
-
-
-
-
----
-
-
-
-
-Android Studio (and IntelliJ)
-
-[List of predefined functions](https://www.jetbrains.com/help/idea/template-variables.html#predefined_functions)
-
-# General Android Live Templates
-evern
-# Live Templates For
-
-# Live Templates For Jetpack Compose
-
+One way to think about live templates are like acronyms. Much like in english "IDK" expands to "I don't know" a live template can expand from `main` to:
 
 ```java
-override fun show$VIEW$() {
-  $VIEWID$.visibility = View.VISIBLE
-}
-
-override fun hide$VIEW$() {
-  $VIEWID$.visibility = View.GONE
+fun main(args: Array<String>) {
+  $END$
 }
 ```
 
-### What's Next?
+###### In the follow parts of this post you'll learn:
+- To use Live Templates in Android Studio
+- How to create your own Live Templates
+- About the many variables available for Live Templates
+- How to use Live Templates with Jetpack Compose
 
-Go forth and create come Live Templates! Share them with me on Twitter! I'd love to add to my collection. If you get stuck with an idea for one also reach out, I want to work on it with you!
+Let's dive in!
 
-Something that Android Studio does not yet support is custom postfix completion for Kotlin.
+# How to use Live Templates
 
+Android Studio comes with a bunch of live templates out of the box. These can be accessed by going to: `Preferences > Editor > Live Templates`. Lets see what kind of options we have in this settings screen.
+
+<div className="Image__Medium">
+  <img
+    src="./images/live_templates_01_annotated.png"
+    title="Live Template Settings Annotated"
+    alt="The Live Template settings screen labeled with numbers."
+  />
+</div>
+
+1. The list of available categories and live template .
+2. Abbreviation: what is typed to trigger the live template.
+3. Template Text: Where the live template is constructed.
+4. Description: A description for what this live template does.
+5. Additional options for this live template.
+6. The "Edit variables" button for this live template
+
+To use one of these live templates lets make a new kotlin file, type `main`, and then wait a second. A tool-tip window will show up enabling the insertion of a live template! Press `enter` or `tab` to insert.
+
+<div className="Image__Medium">
+  <img
+    src="./images/live_templates_02.png"
+    title="The Main Live Template Example"
+    alt="An example of the main live template being used."
+  />
+</div>
+
+And that's it! You have now used a Live Template. 
+
+Explore some of the example live templates for Kotlin and Android in the settings window to see what else is predefined. In the next section we will learn how to customize one of the preexisting templates to be a bit more useful.
+
+# Creating a Custom Live Template
+
+## Live Template Variables
+
+### Defining Variables
+
+To define a variable in a live template simply surround a string with dollar signs. Let's look at the provided Kotlin `interface` live template:
+
+```java
+interface $NAME$ {
+  $END$
+}
+```
+
+###### There are two variables here:
+1. `$NAME$`
+2. `$END$`
+
+After invoking the live template with `tab` the editor places your cursor to define a name for the interface. After entering a value for `$NAME$` pressing `tab` again will take you to the next variable, until you get to the variable `$END$`. `$END$`, and a few other variables, are predefined for specific use.
+
+### Predefined Variables
+- `$DOLLAR$`
+- `$END$`
+- `$SELECTION$`
+
+
+The `$DOLLAR$` variable is used for inserting a dollar sign (`$`) into a live template. Think of it like an escape sequence in a `String`. It will most likely be used in those sorts of situations. To see an example look at the Kotlin live template, `soutv` (Prints a value to System.out).
+
+```java
+println("$EXPR_COPY$ = $DOLLAR${$EXPR$}")
+```
+
+
+`$END$` is a special live template variable that just signifies the template is done being populated. When pressing `tab` leads to this variable your cursor will be placed in the `$END$`'s position and the live template will no longer be active.
+
+
+`$SELECTION$` is a special variable type as it represents text that is highlighted in the editor. For instance to surround a piece of code with parenthesis we could define a live template like this:
+
+```java
+($SELECTION$)
+```
+
+This live template is already defined as `P` under the `Live Templates > surround` section, along with a few others.
+
+To trigger a selection live template, select the text you wish to use and then, if you are on mac, press `⌥+⌘+J` (`Ctrl+Alt+J` for windows/linux) to prompt the dialog. Then the applicable live templates will appear! Now you can type the name or select which one to use.
+
+<div className="Image__Small">
+  <img
+    src="./images/live_templates_03.png"
+    title="The surround with parens live template"
+    alt="An image showing the usage of the P live template to surround with parenthesis."
+  />
+</div>
+
+### Variable Functions
+
+Alright, this is where we get to the true magic of live templates.
+
+In the first section we called out the edit variable button in the live template window. This is where variables gain extra power.
+
+Lets jump to `Live Templates > Kotlin > iter` and see how it is defined:
+
+```java
+for ($VAR$ in $ITERABLE$) {
+  $END$
+}
+```
+
+To break this down, we have the structure for a Kotlin for loop. Two variables are defined, `$VAR$` for the variable name  and `$ITERABLE$` for the iterable collection. And finally `$END$` to place the cursor in the for loop when the live template finishes executing.
+
+Up until now this is exactly how we would define such a structure, but lets super charge it.
+
+Click on the "Edit Variables" button that we saw above in location 6 to bring up this window table containing each of the defined variables.
+
+<div className="Image__Medium">
+  <img
+    src="./images/live_templates_04.png"
+    title="The Edit Tempalte Variables Window"
+    alt="The Edit Tempalte Variables Window"
+  />
+</div>
+
+The Expression column has a drop down menu that provides access to many functions that can make the live template variables smarter. Let's take a look at the two variables in this tempate.
+
+For the variable `ITERABLE` we see that there is an expression of `kotlinVariable()`. This function will make a suggestion for something that can populate this variable. If nothing is found then a Default value can be provided as a suggestion.
+
+For `VAR` we see it has `kotlinSuggestVariableName()`. This function is tells the live template to put something like `i`, `s`, etc if a type can be inferred or loops are being nested. Here the Default value to suggest is `i`.
+
+The last column in this table is "Skip if defined". Checking this box means that if the function executes and returns a value then this variable is considered defined and the live template will automatically move your the cursor to the next variable.
+
+Lets see these functions in action! I will make a function to print out elements of a `List<String>`. Since Android Studio knows the list is only of type string it will suggest a variable name of `s` for `VAR`. And since we have a variable of type Iterable in our scope the variable `ITERABLE` will populate with the available `val list`! Finally, since the check boxes for "Skip if defined" are not enabled, the cursor still goes to each of these variable in case they need to be edited.
+
+
+<div className="Image__Small">
+  <img
+    src="./images/live_templates_05_iter.gif"
+    title="Using the iter live template"
+    alt="An example gif showing the iter live template in action."
+  />
+</div>
+
+There are LOTS of these functions available for live template variables. The function names are pretty descriptive and I recommend looking through the drop down menus to see the options. There is a comprehensive list on the [Jetbrains website](https://www.jetbrains.com/help/idea/template-variables.html#predefined_functions).
+
+# Live Template Pro tips
+
+### Options
+
+There are a few options in the bottom right of the live template window which can add additional convenience.
+
+- Expand with `tab`
+  - Allows for choosing which key will expand a live template	
+- Reformat according to code style
+  - a checkbox to use the project's code style when inserting a live template
+- Shorten FQ names
+  - FQ stands for Fully Qualified
+  - This is a way to automatically import objects or annotations that a live template uses
+
+### Automatically importing with Live Templates
+
+To automatically import with a live template the "Shorten FQ names" checkbox needs to be checked. Then include the fully qualified name in the live template definition.
+
+Here is an example for making a quick test function and not needing to import the `@Test` annotation:
+
+```java
+@org.junit.Test
+fun $TEST_FUNCTION$() {
+  $END$
+}
+```
+
+### Applicable Contexts
+
+Not all live templates should be accesible at all times. For instance, Kotlin live templates shouldn't be available in a Java context, but we can have more control than that! Let's look at the live template to create a function with no return type (`void`). 
+
+This live template is useful at the levels of:
+
+- top-level
+- statement
+- class
+
+but not at the other levels of
+
+- comment
+- expression
+- object declaration
+- other
+
+This means is we can granularly configure when a live template could be applicable. Typing `void` while in a class will for the live template, but typing `void` in a comment will not!
+
+###### In a class:
+<div className="Image__Small">
+  <img
+    src="./images/live_templates_06.png"
+    title="void Live Template in a class"
+    alt="Using the void live template in a class context where it will trigger."
+  />
+</div>
+
+
+###### In a comment:
+<div className="Image__Small">
+  <img
+    src="./images/live_templates_07.png"
+    title="void Live Template in a comment"
+    alt="Using the void live template in a comment context where it will not trigger."
+  />
+</div>
+
+
+# Live Templates for Jetpack Compose
+
+Many of the code structures, syntax, and best practices in Compose UI are very repeatable which means there is a lot of opportunity to create live templates! Android Studio Arctic Fox comes with some Compose live templates, but lets add some common uses that aren't included.
+
+##### Private Composable
+
+|Abbreviation| Description | Shorten FQ Names |
+|---|---|---|
+| `pcomp` | "Create a private composable function" | ✅ |
+
+```java
+@androidx.compose.runtime.Composable
+private fun $NAME$() {
+  $END$
+}
+```
+
+##### Remember mutableStateOf delegate
+|Abbrv.|Description|Shorten FQ Names|`$VAR$` Function|
+|---|---|---|---|
+| `remstate` | "Create a private composable function" | ✅ | `kotlinSuggestVariableName()` |
+
+```java
+val $VAR$ by androidx.compose.runtime.remember { 
+  androidx.compose.runtime.mutableStateOf($END$)
+}
+```
+
+##### Day / Night Preview Composable
+
+This live tempalte idea is from [Adam McNeilly](https://twitter.com/AdamMc331)!
+
+| Abbreviation | Description | Shorten FQ Names |
+|---|---|---|
+| `dnprev` | "Create a day/night @Preview composable function" | ✅ |
+
+```java
+@androidx.compose.ui.tooling.preview.Preview(
+    name = "Night Mode",
+    uiMode = android.content.res.Configuration.UI_MODE_NIGHT_YES,
+)
+@androidx.compose.ui.tooling.preview.Preview(
+    name = "Day Mode",
+    uiMode = android.content.res.Configuration.UI_MODE_NIGHT_NO,
+)
+@androidx.compose.runtime.Composable
+private fun $NAME$Preview() {
+    $NAME$($END$)
+}
+```
+
+---
+
+# What's next?
+
+Go create and play with some live templates! They are really fun to make and use in day to day development. If you need help with them or want to share what you've made reach out on Twitter [@matthewcmckenna](https://twitter.com/matthewcmckenna)! I'd love to see!
+
+---
 
 Header Photo by <a href="https://unsplash.com/@tim_arterbury?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Tim Arterbury</a> on <a href="https://unsplash.com/s/photos/template?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a> and modified by me.
-  
