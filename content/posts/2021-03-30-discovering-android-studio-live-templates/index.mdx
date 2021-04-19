@@ -7,7 +7,7 @@ hero: ./images/understanding-live-templates.png
 excerpt: What are Live Templates? How can they speed up your development? And how to create your own for Jetpack Compose!
 subscription: true
 secret: true
-draft: true
+draft: false
 ---
 
 # Intro to Live Templates
@@ -182,7 +182,7 @@ There are a few options in the bottom right of the live template window which ca
   - FQ stands for Fully Qualified
   - This is a way to automatically import objects or annotations that a live template uses
 
-### Automatically importing with Live Templates
+### Automatic Imports with Live Templates
 
 To automatically import with a live template the "Shorten FQ names" checkbox needs to be checked. Then include the fully qualified name in the live template definition.
 
@@ -215,7 +215,7 @@ but not at the other levels of
 This means is we can granularly configure when a live template could be applicable. Typing `void` while in a class will for the live template, but typing `void` in a comment will not!
 
 ###### In a class:
-<div className="Image__Small">
+<div className="Image__Medium">
   <img
     src="./images/live_templates_06.png"
     title="void Live Template in a class"
@@ -225,7 +225,7 @@ This means is we can granularly configure when a live template could be applicab
 
 
 ###### In a comment:
-<div className="Image__Small">
+<div className="Image__Medium">
   <img
     src="./images/live_templates_07.png"
     title="void Live Template in a comment"
@@ -240,9 +240,20 @@ Many of the code structures, syntax, and best practices in Compose UI are very r
 
 ##### Private Composable
 
-|Abbreviation| Description | Shorten FQ Names |
-|---|---|---|
-| `pcomp` | "Create a private composable function" | ✅ |
+<table>
+  <tr>
+    <th><b>Abbreviation</b></th>
+    <td>pcomp</td>
+  </tr>
+  <tr>
+    <th><b>Description</b></th>
+    <td>Create a private composable function</td>
+  </tr>
+  <tr>
+    <th><b>Shorten FQ Names</b></th>
+    <td>✅</td>
+  </tr>
+</table>
 
 ```java
 @androidx.compose.runtime.Composable
@@ -252,9 +263,21 @@ private fun $NAME$() {
 ```
 
 ##### Remember mutableStateOf delegate
-|Abbrv.|Description|Shorten FQ Names|`$VAR$` Function|
-|---|---|---|---|
-| `remstate` | "Create a private composable function" | ✅ | `kotlinSuggestVariableName()` |
+
+<table>
+  <tr>
+    <th><b>Abbreviation</b></th>
+    <td>remstate</td>
+  </tr>
+  <tr>
+    <th><b>Description</b></th>
+    <td>Create a remember mutableStateOf Delegate</td>
+  </tr>
+  <tr>
+    <th><b>Shorten FQ Names</b></th>
+    <td>✅</td>
+  </tr>
+</table>
 
 ```java
 val $VAR$ by androidx.compose.runtime.remember { 
@@ -262,13 +285,112 @@ val $VAR$ by androidx.compose.runtime.remember {
 }
 ```
 
+##### Make a Spacer
+
+<table>
+  <tr>
+    <th><b>Abbreviation</b></th>
+    <td>spacer</td>
+  </tr>
+  <tr>
+    <th><b>Description</b></th>
+    <td>Makes a spacer of set width</td>
+  </tr>
+  <tr>
+    <th><b>Shorten FQ Names</b></th>
+    <td>✅</td>
+  </tr>
+</table>
+
+```java
+androidx.compose.foundation.layout.Spacer(Modifier.width($NUM$.dp))
+$END$
+```
+
+##### LazyColumn
+
+<table>
+  <tr>
+    <th><b>Abbreviation</b></th>
+    <td>lazycol</td>
+  </tr>
+  <tr>
+    <th><b>Description</b></th>
+    <td>Makes a LazyColumn Composable</td>
+  </tr>
+  <tr>
+    <th><b>Shorten FQ Names</b></th>
+    <td>✅</td>
+  </tr>
+</table>
+
+###### Edit Variables Values
+
+<table>
+  <tr>
+    <th><b>Name</b></th>
+    <td>MOD</td>
+  </tr>
+  <tr>
+    <th><b>Expression</b></th>
+    <td>variableOfType(androidx.compose.ui.Modifier)</td>
+  </tr>
+  <tr>
+    <th><b>Default</b></th>
+    <td>"androidx.compose.ui.Modifier"</td>
+  </tr>
+  <tr>
+    <th><b>Skip if defined</b></th>
+    <td>Unchecked</td>
+  </tr>
+  <tr>
+    <th> </th>
+    <td> </td>
+  </tr>
+  <tr>
+    <th><b>Name</b></th>
+    <td>LIST</td>
+  </tr>
+  <tr>
+    <th><b>Expression</b></th>
+    <td>kotlinVariable()</td>
+  </tr>
+  <tr>
+    <th><b>Default</b></th>
+    <td> </td>
+  </tr>
+  <tr>
+    <th><b>Skip if defined</b></th>
+    <td>Unchecked</td>
+  </tr>
+</table>
+
+```java
+androidx.compose.foundation.lazy.LazyColumn(modifier = $MODIFIER$) {
+  items(items = $LIST$) { item ->
+    $END$          
+  }
+)
+```
+
 ##### Day / Night Preview Composable
 
-This live tempalte idea is from [Adam McNeilly](https://twitter.com/AdamMc331)!
+_This live template idea is from [Adam McNeilly](https://twitter.com/AdamMc331)_
 
-| Abbreviation | Description | Shorten FQ Names |
-|---|---|---|
-| `dnprev` | "Create a day/night @Preview composable function" | ✅ |
+<table>
+  <tr>
+    <th><b>Abbreviation</b></th>
+    <td>dnprev</td>
+  </tr>
+  <tr>
+    <th><b>Description</b></th>
+    <td>Create a day/night @Preview composable function</td>
+  </tr>
+  <tr>
+    <th><b>Shorten FQ Names</b></th>
+    <td>✅</td>
+  </tr>
+</table>
 
 ```java
 @androidx.compose.ui.tooling.preview.Preview(
