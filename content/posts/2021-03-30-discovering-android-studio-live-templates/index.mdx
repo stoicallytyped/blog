@@ -49,7 +49,8 @@ Android Studio comes with a bunch of live templates out of the box. These can be
 3. Template Text: Where the live template is constructed.
 4. Description: A description for what this live template does.
 5. Additional options for this live template.
-6. The "Edit variables" button for this live template
+6. The "Edit variables" button for this live template.
+7. A context selector to choose where a live template can be invoked.
 
 To use one of these live templates lets make a new kotlin file, type `main`, and then wait a second. A tool-tip window will show up enabling the insertion of a live template! Press `enter` or `tab` to insert.
 
@@ -197,7 +198,15 @@ fun $TEST_FUNCTION$() {
 
 ### Applicable Contexts
 
-Not all live templates should be accesible at all times. For instance, Kotlin live templates shouldn't be available in a Java context, but we can have more control than that! Let's look at the live template to create a function with no return type (`void`). 
+Not all live templates should be accesible at all times. For instance, Kotlin live templates shouldn't be available in a Java context, but we can have even more control than that! Let's look at the live template to create a function with no return type (`void`). 
+
+<div className="Image__Small">
+  <img
+    src="./images/live_templates_08.png"
+    title="void Live Template definition and context"
+    alt="The void live template definition and context showing the check boxes for the applicable contexts."
+  />
+</div>
 
 This live template is useful at the levels of:
 
@@ -205,7 +214,7 @@ This live template is useful at the levels of:
 - statement
 - class
 
-but not at the other levels of
+but not at the other levels of:
 
 - comment
 - expression
@@ -236,7 +245,7 @@ This means is we can granularly configure when a live template could be applicab
 
 # Live Templates for Jetpack Compose
 
-Many of the code structures, syntax, and best practices in Compose UI are very repeatable which means there is a lot of opportunity to create live templates! Android Studio Arctic Fox comes with some Compose live templates, but lets add some common uses that aren't included.
+Many of the code structures, syntax, and best practices in Jetpack Compose UI are very repeatable which means this is a great opportunity to create live templates! Android Studio Arctic Fox comes with some Compose live templates, but lets add some common uses that aren't included.
 
 ##### Private Composable
 
@@ -411,7 +420,7 @@ private fun $NAME$Preview() {
 
 # What's next?
 
-Go create and play with some live templates! They are really fun to make and use in day to day development. If you need help with them or want to share what you've made reach out on Twitter [@matthewcmckenna](https://twitter.com/matthewcmckenna)! I'd love to see!
+Go play with and create some live templates! They are really fun to make and use in day to day development. If you need help with them or want to share what you've made reach out on [Twitter](https://twitter.com/intent/tweet?text=.@matthewcmckenna)! I'd love to see them (and add to my collection 😉)!
 
 ---
 
