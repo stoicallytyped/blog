@@ -1,16 +1,16 @@
 ---
-title: "Understanding Android Studio Live Templates for Jetpack Compose"
+title: "Learning Live Templates for Jetpack Compose"
 slug: unlocking-the-power-of-live-templates-in-android-studio
 author: Matt McKenna
 date: 2021-04-20
-hero: ./images/understanding-live-templates.png
+hero: ./images/learning-live-templates.png
 excerpt: What are Live Templates? How can they speed up your development? And how to create your own for Jetpack Compose!
 subscription: true
 secret: true
 draft: false
 ---
 
-# Intro to Live Templates
+### Intro to Live Templates
 
 If you are like me you like to optimize some of the most common situations in your day to day tasks. Finding little ways to make your machine work more for you is satisfying and when it all adds up can lead to some serious time saved! 
 
@@ -32,7 +32,7 @@ fun main(args: Array<String>) {
 
 Let's dive in!
 
-# How to use Live Templates
+### How to use Live Templates
 
 Android Studio comes with a bunch of live templates out of the box. These can be accessed by going to: `Preferences > Editor > Live Templates`. Lets see what kind of options we have in this settings screen.
 
@@ -66,11 +66,48 @@ And that's it! You have now used a Live Template.
 
 Explore some of the example live templates for Kotlin and Android in the settings window to see what else is predefined. In the next section we will learn how to customize one of the preexisting templates to be a bit more useful.
 
-# Creating a Custom Live Template
+### Creating a Custom Live Template
 
-## Live Template Variables
+Let's start by creating a simple live template for a custom `TODO` comment. I usually put my initials in my `TODO`'s so that I can easily search them. They look like this:
 
-### Defining Variables
+```
+// TODO:mcm
+```
+
+To start making this live template follow these steps:
+
+1. Go to `Preferences > Editor > Live Templates`
+2. Select the Kotlin group. This is the group the live template will be added to. 
+2. Click the `+` button in the upper right corner.
+3. Select Live Template.
+4. Type the abbreviation to use to trigger the live template.
+5. Give the live template a description.
+6. In the code block, add the code for the live template. In our case it will be the above `TODO`.
+7. Choose the contexts where this template should be usable.
+   1. For this template we want to use it in Kotlin.
+   2. And it should be usable in all contexts **except** comments (since we already add the comment slashes).
+
+<div className="Image__Medium">
+  <img
+    src="./images/live_templates_10.gif"
+    title="How to create a simple live template"
+    alt="A gif demonstration of creating a simple live template."
+  />
+</div>
+
+And thats it! Here it is in action!
+
+<div className="Image__Medium">
+  <img
+    src="./images/live_templates_11.gif"
+    title="The custom todo live template in action"
+    alt="A gif demonstration showing off the custom todo live template."
+  />
+</div>
+
+### Live Template Variables
+
+## Defining Variables
 
 To define a variable in a live template simply surround a string with dollar signs. Let's look at the provided Kotlin `interface` live template:
 
@@ -143,8 +180,8 @@ Click on the "Edit Variables" button that we saw above in location 6 to bring up
 <div className="Image__Medium">
   <img
     src="./images/live_templates_04.png"
-    title="The Edit Tempalte Variables Window"
-    alt="The Edit Tempalte Variables Window"
+    title="The Edit Template Variables Window"
+    alt="The Edit Template Variables Window"
   />
 </div>
 
@@ -169,9 +206,9 @@ Lets see these functions in action! I will make a function to print out elements
 
 There are LOTS of these functions available for live template variables. The function names are pretty descriptive and I recommend looking through the drop down menus to see the options. There is a comprehensive list on the [Jetbrains website](https://www.jetbrains.com/help/idea/template-variables.html#predefined_functions).
 
-# Live Template Pro tips
+### Live Template Pro tips
 
-### Options
+## Options
 
 There are a few options in the bottom right of the live template window which can add additional convenience.
 
@@ -243,7 +280,7 @@ This means is we can granularly configure when a live template could be applicab
 </div>
 
 
-# Live Templates for Jetpack Compose
+### Live Templates for Jetpack Compose
 
 Many of the code structures, syntax, and best practices in Jetpack Compose UI are very repeatable which means this is a great opportunity to create live templates! Android Studio Arctic Fox comes with some Compose live templates, but lets add some common uses that aren't included.
 
@@ -418,10 +455,12 @@ private fun $NAME$Preview() {
 
 ---
 
-# What's next?
+### What's next?
 
 Go play with and create some live templates! They are really fun to make and use in day to day development. If you need help with them or want to share what you've made reach out on [Twitter](https://twitter.com/intent/tweet?text=.@matthewcmckenna)! I'd love to see them (and add to my collection 😉)!
 
 ---
 
 Header Photo by <a href="https://unsplash.com/@tim_arterbury?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Tim Arterbury</a> on <a href="https://unsplash.com/s/photos/template?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a> and modified by me.
+
+_Special thanks to [Adam McNeilly](https://twitter.com/AdamMc331) for reviewing and proof reading this article._
