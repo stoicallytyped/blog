@@ -453,6 +453,104 @@ private fun $NAME$Preview() {
 }
 ```
 
+##### Phone Preview Annotation
+
+_This series of `@Preview` annotation live templates is inspired by [William Barbosa](https://twitter.com/heytherewills/status/1387746132147806214/photo/1)_
+
+<table>
+  <tr>
+    <th><b>Abbreviation</b></th>
+    <td>prevphone</td>
+  </tr>
+  <tr>
+    <th><b>Description</b></th>
+    <td>Create an @Preview annotation for a phone in light/dark mode</td>
+  </tr>
+  <tr>
+    <th><b>Shorten FQ Names</b></th>
+    <td>✅</td>
+  </tr>
+</table>
+
+```java
+@androidx.compose.ui.tooling.preview.Preview(
+    name = "Phone Night Mode",
+    uiMode = android.content.res.Configuration.UI_MODE_NIGHT_YES,
+)
+@androidx.compose.ui.tooling.preview.Preview(
+    name = "Phone Day Mode",
+    uiMode = android.content.res.Configuration.UI_MODE_NIGHT_NO,
+)
+```
+
+##### Tablet Preview Annotation
+
+_This series of `@Preview` annotation live templates is inspired by [William Barbosa](https://twitter.com/heytherewills/status/1387746132147806214/photo/1)_
+
+<table>
+  <tr>
+    <th><b>Abbreviation</b></th>
+    <td>prevtablet</td>
+  </tr>
+  <tr>
+    <th><b>Description</b></th>
+    <td>Create an @Preview annotation for a tablet in light/dark mode</td>
+  </tr>
+  <tr>
+    <th><b>Shorten FQ Names</b></th>
+    <td>✅</td>
+  </tr>
+</table>
+
+```java
+@androidx.compose.ui.tooling.preview.Preview(
+    name = "Tablet Night Mode",
+    uiMode = android.content.res.Configuration.UI_MODE_NIGHT_YES,
+    heightDp = 1080,
+    widthDp = 760,
+)
+@androidx.compose.ui.tooling.preview.Preview(
+    name = "Tablet Day Mode",
+    uiMode = android.content.res.Configuration.UI_MODE_NIGHT_NO,
+    heightDp = 1080,
+    widthDp = 760,
+)
+```
+
+##### Desktop Preview Annotation
+
+_This series of `@Preview` annotation live templates is inspired by [William Barbosa](https://twitter.com/heytherewills/status/1387746132147806214/photo/1)_
+
+<table>
+  <tr>
+    <th><b>Abbreviation</b></th>
+    <td>prevdesktop</td>
+  </tr>
+  <tr>
+    <th><b>Description</b></th>
+    <td>Create an @Preview annotation for a desktop in light/dark mode</td>
+  </tr>
+  <tr>
+    <th><b>Shorten FQ Names</b></th>
+    <td>✅</td>
+  </tr>
+</table>
+
+```java
+@androidx.compose.ui.tooling.preview.Preview(
+    name = "Desktop Night Mode",
+    uiMode = android.content.res.Configuration.UI_MODE_NIGHT_YES,
+    heightDp = 760,
+    widthDp = 1080,
+)
+@androidx.compose.ui.tooling.preview.Preview(
+    name = "Desktop Day Mode",
+    uiMode = android.content.res.Configuration.UI_MODE_NIGHT_NO,
+    heightDp = 760,
+    widthDp = 1080,
+)
+```
+
 ---
 
 ### What's next?
