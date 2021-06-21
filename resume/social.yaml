@@ -1,8 +1,14 @@
 - name: instagram
-  url: https://instagram.com/stoicallytyped
+  url: https://instagram.com/himattm
 
 - name: twitter
   url: https://twitter.com/himattm
 
 - name: github
-  url: https://github.com/matthewcmckenna
+  url: https://github.com/himattm
+
+- name: twitch
+  url: https://twitch.tv/himattm
+
+- name: youtube
+  url: https://youtube.com/himattm

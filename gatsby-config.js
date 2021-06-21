@@ -15,11 +15,11 @@ module.exports = {
       },
       {
         name: `github`,
-        url: `https://github.com/matthewcmckenna`,
+        url: `https://github.com/himattm`,
       },
       {
         name: `instagram`,
-        url: `https://instagram.com/stoicallytyped`,
+        url: `https://instagram.com/himattm`,
       },
       {
         name: `unsplash`,
@@ -27,7 +27,7 @@ module.exports = {
       },
       {
         name: `medium`,
-        url: `https://medium.com/@mattmck`,
+        url: `https://medium.com/@himattm`,
       },
     ],
     locale: "en",
