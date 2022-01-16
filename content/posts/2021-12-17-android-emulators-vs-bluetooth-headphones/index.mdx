@@ -1,0 +1,139 @@
+---
+title: "Android Emulators vs Bluetooth Headphones"
+slug: android-emulators-vs-bluetooth-headphones
+author: Matt McKenna
+date: 2021-12-17
+hero: ./images/tomasz-gawlowski-YDZPdqv3FcA-unsplash.png
+excerpt: How to Fix Poor Audio Quality When Using Android Emulators
+subscription: true
+secret: false
+draft: false
+---
+
+[![This article is featured in Android Weekly 497](https://androidweekly.net/issues/issue-497/badge)](https://androidweekly.net/issues/issue-497/)
+
+## Why is my audio quality bad?
+
+I've been using Android Emulators since I started developing for Android in 2012. Sometimes using an Emulator makes my audio quality really bad. I _hate_ when this happens. Here's everything I know about keeping your audio from sounding like you connected your headphones to a coffee grinder.
+
+The decline in audio quality happens whenever an app engages the microphone on your headphones. This is because Bluetooth has limited bandwidth. Bluetooth headphones use two different audio codecs for different situations. They can either deliver:
+
+1. High quality audio output.
+2. Low quality audio input _and_ output.
+
+Using a single, high quality codec would lead to a choppy audio experience. Bluetooth's bandwidth is not large enough to support it.
+
+Your emulator might be gaining microphone access causing your headphones to use the low quality codec!
+
+Here's how to stop it.
+
+---
+
+## Solutions
+
+### Remove the Audio Permission from Android Studio
+
+MacOS has evolved to have granular permissions. Access these settings from the Security & Privacy section of Preferences.
+
+1. To open these settings go to the Apple () logo in the upper left and select System Preferences.
+![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1639781771614/1dh8PQ-HD.png)
+
+1. Click on Security & Privacy.
+1. Scroll down to Microphone on the left.
+1. Uncheck Android Studio.
+
+![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1639781575555/HikzMPkBi.png)
+
+Now Android Studio can no longer request access to your microphone at the OS level. If your audio quality is still poor [ensure other apps aren't using your microphone on your Bluetooth headphones](https://support.apple.com/en-us/HT208896).
+
+---
+
+### Disable Audio Capabilities in the Emulator
+
+This solution is a bit more hands on, but if you are still having trouble this WILL work.
+
+1. Navigate to your Emulator's config file. Find this file at:
+  - `/Users/<Your Name>/.android/avd/<Emulator Name>`
+  - Be sure to navigate here with your name and the name of the emulator you want to change.
+2. In this folder you will find a `config.ini` file. Open this and it will look something like:
+```yaml
+AvdId = Pixel_4_API_30
+PlayStore.enabled = true
+abi.type = x86
+avd.ini.displayname = Pixel 4 API 30
+avd.ini.encoding = UTF-8
+disk.dataPartition.size = 6442450944
+fastboot.chosenSnapshotFile = 
+fastboot.forceChosenSnapshotBoot = no
+fastboot.forceColdBoot = no
+fastboot.forceFastBoot = yes
+hw.accelerometer = yes
+hw.arc = false
+hw.audioInput = yes
+hw.battery = yes
+...
+```
+3. Find the hardware audio input and output configurations:
+```yaml
+hw.audioInput = yes
+hw.audioOutput = yes
+```
+4. Change `yes` to `no` to disable it.
+```yaml
+hw.audioInput = no
+hw.audioOutput = no
+```
+5. As a final step you will need to **Wipe Data** and **Cold Boot Now** from the Android Virtual Device Manager.
+
+ >  ⚠️ Note: You will need to do this for each emulator that you have.
+
+---
+
+### Launch From Command Line with `--noaudio`
+
+This fix requires use of the command line and using the `emulator` command.
+
+Google has [good documentation](https://developer.android.com/studio/run/emulator-commandline) on how to use this `emulator` command if you are not familiar with it.
+
+```bash
+emulator -avd Nexus_5X_API_23 -noaudio
+```
+
+or
+
+```bash
+emulator @Nexus_5X_API_23 -noaudio
+```
+
+This isn't ideal for me. I usually like to start my Emulators from with Android Studio.
+
+---
+
+### Override the `QEMU_AUDIO_DRV` Environment Variable
+
+On a Mac or linux machine open up your shell config file (`.bashrc`, `.zshrc`, or other). Set the environment variable: `QEMU_AUDIO_DRV` to `none`.
+
+```bash
+export QEMU_AUDIO_DRV=none
+```
+
+**This will disable the audio backend for Emulators completely!**
+
+> If you know how to set environment variables on Windows please let me know!
+
+Note: There are other audio backends available to try:
+- `alsa`: Use the Advanced Linux Sound Architecture (ALSA) backend
+- `esd`: Use the Enlightened Sound Daemon (EsounD) backend
+- `sdl`: Use the Simple DirectMedia Layer (SDL) audio backend (no audio input supported)
+- `oss`: Use the Open Sound System (OSS) backend
+- `none`: Do not support audio
+
+---
+
+
+Let me know how this works for you!
+
+
+For more Android tips and tricks find me on [Twitter](https://twitter.com/intent/user?screen_name=himattm).
+Header Photo by <a href="https://unsplash.com/@tim_arterbury?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Tim Arterbury</a> on <a href="https://unsplash.com/s/photos/template?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a> and modified by me.
+  
